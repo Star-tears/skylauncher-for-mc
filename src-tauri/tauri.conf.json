@@ -5,11 +5,11 @@
     "beforeDevCommand": "pnpm dev",
     "devPath": "http://localhost:3000",
     "distDir": "../out",
-    "withGlobalTauri": true
+    "withGlobalTauri": false
   },
   "package": {
     "productName": "skylauncher-for-mc",
-    "version": "0.0.2"
+    "version": "0.0.1"
   },
   "tauri": {
     "allowlist": {
@@ -53,7 +53,7 @@
       }
     },
     "security": {
-      "csp": null
+      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
     },
     "updater": {
       "active": true,
@@ -69,7 +69,8 @@
         "height": 600,
         "resizable": true,
         "title": "skylauncher-for-mc",
-        "width": 800
+        "width": 800,
+        "decorations": false
       }
     ]
   }

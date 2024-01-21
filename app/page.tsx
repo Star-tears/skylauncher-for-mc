@@ -20,6 +20,7 @@ import { getVersion } from "@tauri-apps/api/app";
 export default function Page() {
   const [appVersion, setTauriVersion] = useState("");
   useLayoutEffect(() => {
+    let allow = true;
     const fetchVersion = async () => {
       try {
         const version = await getVersion();
@@ -29,6 +30,7 @@ export default function Page() {
       }
     };
     fetchVersion();
+    () => (allow = false);
   }, []);
   return (
     <>
