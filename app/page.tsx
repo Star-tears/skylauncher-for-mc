@@ -16,8 +16,10 @@ import {
   Avatar,
 } from "@nextui-org/react";
 import { getVersion } from "@tauri-apps/api/app";
+import { Trans, useTranslation } from 'react-i18next';
 
 export default function Page() {
+  const { t } = useTranslation();
   const [appVersion, setTauriVersion] = useState("");
   useLayoutEffect(() => {
     let allow = true;
