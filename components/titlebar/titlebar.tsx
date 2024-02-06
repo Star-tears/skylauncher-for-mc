@@ -44,7 +44,7 @@ export default function TitleBar() {
         </span>
       </div>
       <div className="flex h-full flex-row">
-        <div className=" scale-75">
+        <div className="scale-75">
           <ThemeModeToggle />
         </div>
         <div

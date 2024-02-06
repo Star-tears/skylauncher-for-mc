@@ -18,6 +18,12 @@
         "show": true,
         "hide": true
       },
+      "process": {
+        "all": false,
+        "exit": false,
+        "relaunch": true,
+        "relaunchDangerousAllowSymlinkMacos": false
+      },
       "window": {
         "all": false,
         "center": false,
@@ -96,7 +102,7 @@
       "endpoints": [
         "https://update.sky-crafting.com/skylauncher-for-mc/release/latest.json"
       ],
-      "dialog": true,
+      "dialog": false,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEVERTgzODdBRTNERTNFOEUKUldTT1B0N2plampvN2REUlRhMHJabXppWEczdkNaeDVzSjB5TkVFd1RNVGxiVThXMDNGVVdDV0UK"
     },
     "windows": [

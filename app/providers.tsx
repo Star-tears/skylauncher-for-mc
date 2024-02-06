@@ -10,15 +10,15 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <NextUIProvider navigate={router.push}>
-        <main>{children}</main>
-      </NextUIProvider>
-    </ThemeProvider>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <NextUIProvider navigate={router.push}>
+          <main>{children}</main>
+        </NextUIProvider>
+      </ThemeProvider>
   );
 }
