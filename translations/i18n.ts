@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import en from './en.json'
 import cn from './cn.json'
 
-export const defaultLng = 'en';
+export const defaultLng = 'cn';
 // this is exported in order to avoid hard coding supported languages in more than 1 place
 const resources = {
     en: {

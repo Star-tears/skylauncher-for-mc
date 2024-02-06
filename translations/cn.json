@@ -1,6 +1,8 @@
 {
-    "Minimize": "最小化",
-    "Maximize": "最大化",
-    "Close": "关闭",
-    "Home": "主页"
+  "Minimize": "最小化",
+  "Maximize": "最大化",
+  "Restore Down": "还原",
+  "Close": "关闭",
+  "Home": "主页",
+  "version": "版本"
 }

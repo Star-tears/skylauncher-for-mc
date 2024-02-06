@@ -1,0 +1,1 @@
+export { default as SkylLogo } from "./skyl-logo";
