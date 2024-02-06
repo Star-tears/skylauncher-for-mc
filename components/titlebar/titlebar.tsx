@@ -9,7 +9,7 @@ import {
 } from "react-icons/vsc";
 import Image from "next/image";
 import SkyLauncherLogoSvg from "@/public/images/skylauncher-for-mc-logo.svg";
-import { useEffectOnce, useInterval, useUpdate } from "react-use";
+import { ThemeModeToggle } from "../theme-mode-toggle";
 
 export default function TitleBar() {
   const { t } = useTranslation();
@@ -26,7 +26,7 @@ export default function TitleBar() {
   return (
     <div
       data-tauri-drag-region
-      className="fixed left-0 right-0 top-0 flex h-10 w-screen flex-row justify-between border-b-1 backdrop-blur-lg backdrop-filter z-50"
+      className="fixed left-0 right-0 top-0 z-50 flex h-10 w-screen flex-row justify-between border-b-1 backdrop-blur-lg backdrop-filter"
     >
       <div className=" my-auto flex flex-row space-x-1 pl-1">
         <Image
@@ -44,6 +44,9 @@ export default function TitleBar() {
         </span>
       </div>
       <div className="flex h-full flex-row">
+        <div className=" scale-75">
+          <ThemeModeToggle />
+        </div>
         <div
           title={t("Minimize")}
           className="inline-flex h-full w-11 items-center justify-center bg-black bg-opacity-0 transition-all hover:bg-opacity-10 hover:transition-all active:bg-opacity-20 dark:bg-white dark:bg-opacity-0 dark:hover:bg-opacity-15 dark:active:bg-opacity-25"

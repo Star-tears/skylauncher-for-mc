@@ -37,8 +37,8 @@ export default function Page() {
         <div></div>
       </div>
       <div className="fixed bottom-0 right-0 flex items-end justify-end p-1">
-        <span className="text-sm text-gray-500 opacity-50">
-          {t("version")} v{appVersion}
+        <span className="text-xs text-gray-500 opacity-50">
+          skylauncher-for-mc {t("version")} v{appVersion}
         </span>
       </div>
     </div>

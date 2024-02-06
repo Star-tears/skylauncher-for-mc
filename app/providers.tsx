@@ -2,6 +2,7 @@
 "use client";
 
 import { NextUIProvider } from "@nextui-org/react";
+import { ThemeProvider } from "@/components/theme-provider";
 import { useRouter } from "next/navigation";
 import "@/translations/i18n";
 
@@ -9,8 +10,15 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   return (
-    <NextUIProvider navigate={router.push}>
-      <main className="bg-background text-foreground">{children}</main>
-    </NextUIProvider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <NextUIProvider navigate={router.push}>
+        <main>{children}</main>
+      </NextUIProvider>
+    </ThemeProvider>
   );
 }
