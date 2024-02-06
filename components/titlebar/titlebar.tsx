@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { appWindow } from "@tauri-apps/api/window";
+import { WebviewWindow } from "@tauri-apps/api/window";
 import {
   VscChromeClose,
   VscChromeMaximize,
@@ -9,19 +9,37 @@ import {
 } from "react-icons/vsc";
 import Image from "next/image";
 import SkyLauncherLogoSvg from "@/public/images/skylauncher-for-mc-logo.svg";
-import { ThemeModeToggle } from "../theme-mode-toggle";
+import { ThemeModeToggle } from "@/components/theme-mode-toggle";
+import { useEffectOnce } from "react-use";
 
 export default function TitleBar() {
   const { t } = useTranslation();
   const [maximized, setMaximized] = useState(false);
-  const toggleMaximizeClicked = () => {
-    appWindow.toggleMaximize().finally(() => {
-      appWindow.isMaximized().then(setMaximized);
+  const [appWindow, setAppWindow] = useState<WebviewWindow>();
+
+  const setupAppWindow = async () => {
+    const appWindow = (await import("@tauri-apps/api/window")).appWindow;
+    setAppWindow(appWindow);
+  };
+  useEffectOnce(() => {
+    setupAppWindow();
+  });
+
+  const windowMinimize = () => {
+    appWindow?.minimize();
+  };
+  const windowClose = () => {
+    appWindow?.close();
+  };
+  const windowToggle = () => {
+    appWindow?.toggleMaximize().finally(() => {
+      appWindow?.isMaximized().then(setMaximized);
     });
   };
-  useEffect(() => {
-    appWindow.isMaximized().then(setMaximized);
-  }, []);
+
+  useEffectOnce(() => {
+    appWindow?.isMaximized().then(setMaximized);
+  });
 
   return (
     <div
@@ -50,7 +68,7 @@ export default function TitleBar() {
         <div
           title={t("Minimize")}
           className="inline-flex h-full w-11 items-center justify-center bg-black bg-opacity-0 transition-all hover:bg-opacity-10 hover:transition-all active:bg-opacity-20 dark:bg-white dark:bg-opacity-0 dark:hover:bg-opacity-15 dark:active:bg-opacity-25"
-          onClick={() => appWindow.minimize()}
+          onClick={windowMinimize}
         >
           <VscChromeMinimize className="align-middle" />
         </div>
@@ -58,7 +76,7 @@ export default function TitleBar() {
           <div
             title={t("Restore Down")}
             className="inline-flex h-full w-11 items-center justify-center bg-black bg-opacity-0 transition-all hover:bg-opacity-10 hover:transition-all active:bg-opacity-20 dark:bg-white dark:bg-opacity-0 dark:hover:bg-opacity-15 dark:active:bg-opacity-25"
-            onClick={toggleMaximizeClicked}
+            onClick={windowToggle}
           >
             <VscChromeRestore className="align-middle" />
           </div>
@@ -66,7 +84,7 @@ export default function TitleBar() {
           <div
             title={t("Maximize")}
             className="inline-flex h-full w-11 items-center justify-center bg-black bg-opacity-0 transition-all hover:bg-opacity-10 hover:transition-all active:bg-opacity-20 dark:bg-white dark:bg-opacity-0 dark:hover:bg-opacity-15 dark:active:bg-opacity-25"
-            onClick={toggleMaximizeClicked}
+            onClick={windowToggle}
           >
             <VscChromeMaximize className="align-middle" />
           </div>
@@ -74,7 +92,7 @@ export default function TitleBar() {
         <div
           title={t("Close")}
           className="group inline-flex h-full w-11 items-center justify-center  transition-all hover:bg-red-600 hover:transition-all active:bg-red-700"
-          onClick={() => appWindow.close()}
+          onClick={windowClose}
         >
           <VscChromeClose className="align-middle group-hover:fill-white" />
         </div>

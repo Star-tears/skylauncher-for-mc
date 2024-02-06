@@ -16,13 +16,9 @@ export default function Page() {
   const { t } = useTranslation();
   const [appVersion, setTauriVersion] = useState("");
   useEffectOnce(() => {
-    const fetchVersion = async () => {
-      try {
-        const version = await getVersion();
-        setTauriVersion(version);
-      } catch (error) {}
-    };
-    fetchVersion();
+    getVersion().then((v) => {
+      setTauriVersion(v);
+    });
   });
   useEffectOnce(() => {
     checkUpdate().then(({ manifest, shouldUpdate }) => {
