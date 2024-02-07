@@ -11,18 +11,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <Toaster
-          closeButton
-          richColors
-          position="top-right"
-          className=" mt-10"
-          toastOptions={{
-            style: {
-              top: 24,
-            },
-          }}
-        />
-        <Providers>{children}</Providers>
+        <Providers>
+          <Toaster
+            closeButton
+            richColors
+            position="top-right"
+            className=" mt-10"
+            toastOptions={{
+              style: {
+                top: 24,
+              },
+            }}
+          />
+          {children}
+        </Providers>
       </body>
     </html>
   );
