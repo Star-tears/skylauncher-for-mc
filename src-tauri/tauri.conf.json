@@ -5,11 +5,11 @@
     "beforeDevCommand": "pnpm dev",
     "devPath": "http://localhost:3000",
     "distDir": "../out",
-    "withGlobalTauri": true
+    "withGlobalTauri": false
   },
   "package": {
     "productName": "skylauncher-for-mc",
-    "version": "0.0.2"
+    "version": "0.0.1"
   },
   "tauri": {
     "allowlist": {
@@ -17,6 +17,48 @@
         "all": true,
         "show": true,
         "hide": true
+      },
+      "process": {
+        "all": false,
+        "exit": false,
+        "relaunch": true,
+        "relaunchDangerousAllowSymlinkMacos": false
+      },
+      "window": {
+        "all": false,
+        "center": false,
+        "close": true,
+        "create": false,
+        "hide": false,
+        "maximize": true,
+        "minimize": true,
+        "print": false,
+        "requestUserAttention": false,
+        "setAlwaysOnTop": false,
+        "setClosable": false,
+        "setContentProtected": false,
+        "setCursorGrab": false,
+        "setCursorIcon": false,
+        "setCursorPosition": false,
+        "setCursorVisible": false,
+        "setDecorations": true,
+        "setFocus": true,
+        "setFullscreen": true,
+        "setIcon": false,
+        "setIgnoreCursorEvents": false,
+        "setMaxSize": false,
+        "setMaximizable": false,
+        "setMinSize": false,
+        "setMinimizable": false,
+        "setPosition": false,
+        "setResizable": false,
+        "setSize": false,
+        "setSkipTaskbar": false,
+        "setTitle": false,
+        "show": false,
+        "startDragging": true,
+        "unmaximize": true,
+        "unminimize": true
       }
     },
     "bundle": {
@@ -53,23 +95,26 @@
       }
     },
     "security": {
-      "csp": null
+      "csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
     },
     "updater": {
       "active": true,
       "endpoints": [
         "https://update.sky-crafting.com/skylauncher-for-mc/release/latest.json"
       ],
-      "dialog": true,
+      "dialog": false,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEVERTgzODdBRTNERTNFOEUKUldTT1B0N2plampvN2REUlRhMHJabXppWEczdkNaeDVzSjB5TkVFd1RNVGxiVThXMDNGVVdDV0UK"
     },
     "windows": [
       {
-        "fullscreen": false,
-        "height": 600,
-        "resizable": true,
+        "label": "main",
         "title": "skylauncher-for-mc",
-        "width": 800
+        "fullscreen": false,
+        "resizable": true,
+        "height": 700,
+        "width": 1152,
+        "decorations": true,
+        "alwaysOnTop": false
       }
     ]
   }
