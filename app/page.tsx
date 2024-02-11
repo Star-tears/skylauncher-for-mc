@@ -10,6 +10,8 @@ import useUpdater from "@/hooks/tauri/useUpdater";
 import { useTauriContext } from "@/components/skylauncher/providers/tauri-provider";
 import { CustomContextMenu } from "@/components/skylauncher/custom-context-menu";
 import { CommandMenu } from "@/components/skylauncher/command-menu";
+import { GearIcon } from "@radix-ui/react-icons";
+import { Link } from "@nextui-org/link";
 
 export default function Page() {
   const { t } = useTranslation();
@@ -41,8 +43,18 @@ export default function Page() {
                 </p>
               </div>
 
-              <div className="mt-5 flex flex-col  items-center">
-                <Avatar isBordered color="secondary" radius="sm" name="Sky" />
+              <div className="mt-5 flex flex-1 flex-col  items-center justify-between">
+                <div>
+                  <Avatar isBordered color="secondary" radius="sm" name="Sky" />
+                </div>
+                <div className="mb-4 flex flex-col">
+                  <Link
+                    isExternal
+                    showAnchorIcon
+                    href="/"
+                    anchorIcon={<GearIcon className=" size-5" />}
+                  ></Link>
+                </div>
               </div>
             </div>
             <div></div>
