@@ -44,7 +44,7 @@ export default function TitleBar() {
   return (
     <div
       data-tauri-drag-region
-      className="fixed left-0 right-0 top-0 z-[1000] flex h-10 w-screen flex-row justify-between border-b-1 backdrop-blur-lg backdrop-filter"
+      className="fixed left-0 right-0 top-0 z-[1000] flex h-10 w-screen flex-row justify-between border-b-1 bg-default bg-opacity-20 backdrop-blur-3xl backdrop-filter"
     >
       <div className=" my-auto flex flex-row space-x-1 pl-1">
         <Image
