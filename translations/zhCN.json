@@ -1,0 +1,12 @@
+{
+  "Minimize": "最小化",
+  "Maximize": "最大化",
+  "Restore Down": "还原",
+  "Close": "关闭",
+  "Home": "主页",
+  "version": "版本",
+  "Install update and relaunch": "更新并重启",
+  "Installing update v{{ v }}": "正在升级版本 v{{ v }}",
+  "Will relaunch afterwards": "之后将重新启动",
+  "Update v{{ v }} available": "有可用更新 v{{ v }}"
+}

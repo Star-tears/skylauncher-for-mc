@@ -2,14 +2,16 @@
 "use client";
 
 import { NextUIProvider } from "@nextui-org/react";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/skylauncher/providers/theme-provider";
 import { useRouter } from "next/navigation";
 import "@/translations/i18n";
+import { TauriProvider } from "@/components/skylauncher/providers/tauri-provider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   return (
+    <TauriProvider>
       <ThemeProvider
         attribute="class"
         defaultTheme="system"
@@ -20,5 +22,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
           <main>{children}</main>
         </NextUIProvider>
       </ThemeProvider>
+    </TauriProvider>
   );
 }

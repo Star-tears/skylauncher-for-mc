@@ -2,16 +2,16 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import en from './en.json'
-import cn from './cn.json'
+import zhCN from './zhCN.json'
 
-export const defaultLng = 'cn';
+export const defaultLng = 'zhCN';
 // this is exported in order to avoid hard coding supported languages in more than 1 place
 const resources = {
     en: {
         translations: en
     },
-    cn: {
-        translations: cn
+    zhCN: {
+        translations: zhCN
     }
 }
 
