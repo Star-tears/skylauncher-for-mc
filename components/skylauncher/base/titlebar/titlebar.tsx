@@ -9,7 +9,7 @@ import {
 } from "react-icons/vsc";
 import Image from "next/image";
 import SkyLauncherLogoSvg from "@/public/images/skylauncher-for-mc-logo.svg";
-import { ThemeModeToggle } from "@/components/skylauncher/theme-mode-toggle";
+import { ThemeModeToggle } from "@/components/skylauncher/base/theme-mode-toggle";
 import { useEffectOnce } from "react-use";
 
 export default function TitleBar() {
