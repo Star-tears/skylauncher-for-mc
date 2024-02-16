@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { GearIcon, PersonIcon, RocketIcon } from "@radix-ui/react-icons";
 
 import {
   Command,
-  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
@@ -15,14 +14,7 @@ import {
   CommandShortcut,
 } from "@/components/ui/command";
 
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  useDisclosure,
-} from "@nextui-org/modal";
+import { Modal, ModalContent, useDisclosure } from "@nextui-org/modal";
 import { useKeyPress } from "ahooks";
 
 export function CommandMenu() {
