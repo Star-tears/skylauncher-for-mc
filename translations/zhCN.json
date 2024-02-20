@@ -8,5 +8,10 @@
   "Install update and relaunch": "更新并重启",
   "Installing update v{{ v }}": "正在升级版本 v{{ v }}",
   "Will relaunch afterwards": "之后将重新启动",
-  "Update v{{ v }} available": "有可用更新 v{{ v }}"
+  "Update v{{ v }} available": "有可用更新 v{{ v }}",
+  "Advanced options": "高级选项",
+  "Wallpaper settings": "壁纸设置",
+  "Previews": "预览",
+  "Change": "更改",
+  "Opacity": "不透明度"
 }

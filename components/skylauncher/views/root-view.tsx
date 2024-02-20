@@ -9,7 +9,7 @@ import { CustomContextMenu } from "@/components/skylauncher/base/custom-context-
 import { CommandMenu } from "@/components/skylauncher/base/command-menu";
 import { GearIcon } from "@radix-ui/react-icons";
 import { Link } from "@nextui-org/link";
-import BackgroundImg from "@/components/skylauncher/base/background-img";
+import { BgImgUnit } from "@/components/skylauncher/unit/bg-img-unit";
 
 export default function RootView({ children }: { children?: React.ReactNode }) {
   const { t } = useTranslation();
@@ -32,7 +32,7 @@ export default function RootView({ children }: { children?: React.ReactNode }) {
       />
       <CustomContextMenu>
         <div className=" h-screen w-screen">
-          <BackgroundImg>
+          <BgImgUnit>
             <div className="flex size-full flex-row">
               <div className=" flex h-full w-16 flex-col border-r-2 backdrop-blur-2xl backdrop-filter">
                 <div>
@@ -59,9 +59,14 @@ export default function RootView({ children }: { children?: React.ReactNode }) {
                   </div>
                 </div>
               </div>
-              <div className=" size-full">{children}</div>
+              <div
+                aria-label="main-page"
+                className=" relative size-full overflow-auto"
+              >
+                {children}
+              </div>
             </div>
-          </BackgroundImg>
+          </BgImgUnit>
         </div>
       </CustomContextMenu>
       <div className="fixed bottom-0 right-0 z-[1000] flex items-end justify-end p-1">

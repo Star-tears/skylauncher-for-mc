@@ -114,7 +114,9 @@
         "height": 700,
         "width": 1152,
         "decorations": true,
-        "alwaysOnTop": false
+        "alwaysOnTop": false,
+        "minHeight": 600,
+        "minWidth": 800
       }
     ]
   }
