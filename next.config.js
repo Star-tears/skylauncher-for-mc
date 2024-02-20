@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // reactStrictMode: false,
+    reactStrictMode: false,
     output: 'export',
     // Note: This feature is required to use NextJS Image in SSG mode.
     // See https://nextjs.org/docs/messages/export-image-api for different workarounds.
