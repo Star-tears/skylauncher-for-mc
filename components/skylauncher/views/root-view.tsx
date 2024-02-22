@@ -10,6 +10,7 @@ import { CommandMenu } from "@/components/skylauncher/base/command-menu";
 import { GearIcon } from "@radix-ui/react-icons";
 import { Link } from "@nextui-org/link";
 import { BgImgUnit } from "@/components/skylauncher/unit/bg-img-unit";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function RootView({ children }: { children?: React.ReactNode }) {
   const { t } = useTranslation();
@@ -59,12 +60,11 @@ export default function RootView({ children }: { children?: React.ReactNode }) {
                   </div>
                 </div>
               </div>
-              <div
-                aria-label="main-page"
-                className=" relative size-full overflow-auto"
-              >
-                {children}
-              </div>
+              <ScrollArea className=" size-full">
+                <div aria-label="main-page" className=" relative size-full">
+                  {children}
+                </div>
+              </ScrollArea>
             </div>
           </BgImgUnit>
         </div>
