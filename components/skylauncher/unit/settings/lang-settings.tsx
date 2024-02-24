@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/select";
 
 function LangSettings() {
-  const { t,i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const languages = Object.keys(i18n.options.resources!);
   const lang = i18n.resolvedLanguage;
   return (

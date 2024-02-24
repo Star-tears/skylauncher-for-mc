@@ -19,7 +19,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         disableTransitionOnChange
       >
         <NextUIProvider navigate={router.push}>
-          <main>{children}</main>
+            <main>{children}</main>
         </NextUIProvider>
       </ThemeProvider>
     </TauriProvider>

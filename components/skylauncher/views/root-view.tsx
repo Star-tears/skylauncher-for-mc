@@ -7,10 +7,9 @@ import { Toaster } from "@/components/ui/sonner";
 import { useTauriContext } from "@/components/skylauncher/base/providers/tauri-provider";
 import { CustomContextMenu } from "@/components/skylauncher/base/custom-context-menu";
 import { CommandMenu } from "@/components/skylauncher/base/command-menu";
-import { GearIcon } from "@radix-ui/react-icons";
+import { GearIcon, HomeIcon } from "@radix-ui/react-icons";
 import { Link } from "@nextui-org/link";
 import { BgImgUnit } from "@/components/skylauncher/unit/bg-img-unit";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function RootView({ children }: { children?: React.ReactNode }) {
   const { t } = useTranslation();
@@ -42,13 +41,18 @@ export default function RootView({ children }: { children?: React.ReactNode }) {
                 </div>
 
                 <div className="mt-5 flex flex-1 flex-col  items-center justify-between">
-                  <div>
+                  <div className="flex flex-col gap-4 items-center">
                     <Avatar
                       isBordered
                       color="secondary"
                       radius="sm"
                       name="Sky"
                     />
+                    <Link
+                      showAnchorIcon
+                      href="/"
+                      anchorIcon={<HomeIcon className=" size-5" />}
+                    ></Link>
                   </div>
                   <div className="mb-4 flex flex-col">
                     <Link
