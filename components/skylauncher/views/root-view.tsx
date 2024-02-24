@@ -24,7 +24,6 @@ export default function RootView({ children }: { children?: React.ReactNode }) {
         closeButton
         richColors
         position="top-right"
-        className=" mt-10"
         toastOptions={{
           style: {
             top: 24,
@@ -32,7 +31,7 @@ export default function RootView({ children }: { children?: React.ReactNode }) {
         }}
       />
       <CustomContextMenu>
-        <div className=" h-screen w-screen">
+        <div className=" relative h-screen w-screen">
           <BgImgUnit>
             <div className="flex size-full flex-row">
               <div className=" flex h-full w-16 flex-col border-r-2 backdrop-blur-2xl backdrop-filter">
@@ -60,11 +59,9 @@ export default function RootView({ children }: { children?: React.ReactNode }) {
                   </div>
                 </div>
               </div>
-              <ScrollArea className=" size-full">
-                <div aria-label="main-page" className=" relative size-full">
-                  {children}
-                </div>
-              </ScrollArea>
+              <div aria-label="main-page" className="relative h-full grow">
+                {children}
+              </div>
             </div>
           </BgImgUnit>
         </div>

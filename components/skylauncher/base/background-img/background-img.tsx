@@ -62,7 +62,7 @@ function BackgroundImg({
           }}
         >
           <div
-            className={`absolute overflow-hidden ${blurclass}`}
+            className={`absolute inset-0 overflow-hidden ${blurclass}`}
             style={{
               left: marginLeft,
               right: marginRight,
