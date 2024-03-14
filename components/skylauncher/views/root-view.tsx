@@ -1,5 +1,6 @@
+"use client";
+
 import React, { ReactNode } from "react";
-import { useTranslation } from "react-i18next";
 import useUpdater from "@/hooks/tauri/useUpdater";
 import { TitleBar } from "@/components/skylauncher/base/titlebar";
 import { Avatar } from "@nextui-org/avatar";
@@ -7,9 +8,9 @@ import { Toaster } from "@/components/ui/sonner";
 import { useTauriContext } from "@/components/skylauncher/base/providers/tauri-provider";
 import { CustomContextMenu } from "@/components/skylauncher/base/custom-context-menu";
 import { CommandMenu } from "@/components/skylauncher/base/command-menu";
-import { GearIcon } from "@radix-ui/react-icons";
-import { Link } from "@nextui-org/link";
+import { GearIcon, HomeIcon } from "@radix-ui/react-icons";
 import { BgImgUnit } from "@/components/skylauncher/unit/bg-img-unit";
+import { LinkWithLocale, useTranslation } from "next-export-i18n";
 
 export default function RootView({ children }: { children?: React.ReactNode }) {
   const { t } = useTranslation();
@@ -23,7 +24,6 @@ export default function RootView({ children }: { children?: React.ReactNode }) {
         closeButton
         richColors
         position="top-right"
-        className=" mt-10"
         toastOptions={{
           style: {
             top: 24,
@@ -31,7 +31,7 @@ export default function RootView({ children }: { children?: React.ReactNode }) {
         }}
       />
       <CustomContextMenu>
-        <div className=" h-screen w-screen">
+        <div className=" relative h-screen w-screen">
           <BgImgUnit>
             <div className="flex size-full flex-row">
               <div className=" flex h-full w-16 flex-col border-r-2 backdrop-blur-2xl backdrop-filter">
@@ -42,27 +42,25 @@ export default function RootView({ children }: { children?: React.ReactNode }) {
                 </div>
 
                 <div className="mt-5 flex flex-1 flex-col  items-center justify-between">
-                  <div>
+                  <div className="flex flex-col items-center gap-4">
                     <Avatar
                       isBordered
                       color="secondary"
                       radius="sm"
                       name="Sky"
                     />
+                    <LinkWithLocale href="/">
+                      <HomeIcon className=" size-5" />
+                    </LinkWithLocale>
                   </div>
                   <div className="mb-4 flex flex-col">
-                    <Link
-                      showAnchorIcon
-                      href="/settings"
-                      anchorIcon={<GearIcon className=" size-5" />}
-                    ></Link>
+                    <LinkWithLocale href="/settings">
+                      <GearIcon className=" size-5" />
+                    </LinkWithLocale>
                   </div>
                 </div>
               </div>
-              <div
-                aria-label="main-page"
-                className=" relative size-full overflow-auto"
-              >
+              <div aria-label="main-page" className="relative h-full grow">
                 {children}
               </div>
             </div>

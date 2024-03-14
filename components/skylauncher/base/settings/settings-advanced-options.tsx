@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-export-i18n";
 
 function SettingsAdvancedOptions({ children }: { children?: ReactNode }) {
   const { t } = useTranslation();

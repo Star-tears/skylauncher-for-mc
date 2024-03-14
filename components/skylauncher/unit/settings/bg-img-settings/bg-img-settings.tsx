@@ -5,7 +5,7 @@ import {
   SettingsAdvancedOpt,
   SettingsHeader,
 } from "@/components/skylauncher/base/settings";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-export-i18n";
 import { Divider } from "@nextui-org/divider";
 import { Input as NextuiInput } from "@nextui-org/input";
 import { Button, ButtonGroup } from "@nextui-org/button";

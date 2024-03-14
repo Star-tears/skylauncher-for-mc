@@ -3,8 +3,7 @@
 
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider } from "@/components/skylauncher/base/providers/theme-provider";
-import { useRouter } from "next/navigation";
-import "@/translations/i18n";
+import {useRouter} from 'next/router';
 import { TauriProvider } from "@/components/skylauncher/base/providers/tauri-provider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -19,7 +18,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         disableTransitionOnChange
       >
         <NextUIProvider navigate={router.push}>
-          <main>{children}</main>
+            <main>{children}</main>
         </NextUIProvider>
       </ThemeProvider>
     </TauriProvider>
