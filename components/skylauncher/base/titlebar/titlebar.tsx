@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-export-i18n";
 import { WebviewWindow } from "@tauri-apps/api/window";
 import {
   VscChromeClose,

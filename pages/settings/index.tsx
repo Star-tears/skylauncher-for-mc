@@ -6,15 +6,17 @@ import SettingsLayout from "./layout";
 
 export default function SettingsPage() {
   return (
-    <PageTransition>
-      <div className="mt-4 flex flex-col items-center gap-4">
-        <BgImgSettings />
-        <LangSettings />
-      </div>
-    </PageTransition>
+    <div className="mt-4 flex flex-col items-center gap-4">
+      <BgImgSettings />
+      <LangSettings />
+    </div>
   );
 }
 
 SettingsPage.getLayout = function getLayout(page: ReactElement) {
-  return <SettingsLayout>{page}</SettingsLayout>;
+  return (
+    <SettingsLayout>
+      <PageTransition>{page}</PageTransition>
+    </SettingsLayout>
+  );
 };

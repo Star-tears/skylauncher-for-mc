@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { useEffectOnce } from "react-use";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-export-i18n";
 import { relaunch } from "@tauri-apps/api/process";
 
 const useUpdater = () => {
