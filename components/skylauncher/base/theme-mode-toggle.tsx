@@ -14,6 +14,41 @@ import {
 
 export function ThemeModeToggle() {
   const { setTheme } = useTheme();
+  const toggleTheme = (event: any, themeValue: string) => {
+    const x = event.clientX;
+    const y = event.clientY;
+    const endRadius = Math.hypot(
+      Math.max(x, innerWidth - x),
+      Math.max(y, innerHeight - y),
+    );
+
+    // @ts-ignore
+    if (!document.startViewTransition) {
+      setTheme(themeValue);
+      return;
+    }
+    // @ts-ignore
+    const transition = document.startViewTransition(async () => {
+      setTheme(themeValue);
+    });
+
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ];
+      document.documentElement.animate(
+        {
+          clipPath: clipPath,
+        },
+        {
+          duration: 400,
+          easing: "ease-in",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      );
+    });
+  };
 
   return (
     <DropdownMenu>
@@ -25,13 +60,13 @@ export function ThemeModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem onClick={(e) => toggleTheme(e, "light")}>
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem onClick={(e) => toggleTheme(e, "dark")}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem onClick={(e) => toggleTheme(e, "system")}>
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
